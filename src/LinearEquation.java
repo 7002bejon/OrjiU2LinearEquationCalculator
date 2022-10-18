@@ -8,7 +8,7 @@ public class LinearEquation {
         public LinearEquation(int x1, int y1, int x2, int y2) {
             this.x1 = x1;
             this.x2 = x2;
-            this.y1 = y2;
+            this.y1 = y1;
             this.y2 = y2;
         }
 
@@ -21,7 +21,7 @@ public LinearEquation(int x1, int y1, int x2, int y2)
 /* Calculates and returns distance between (x1, y1) and (x2, y2), rounded to
    the nearest hundredth */
         public double distance() {
-          return Math.round(Math.sqrt(Math.pow((x2 - x1), 2) - Math.pow((y2 - y1), 2)));
+          return Math.round(Math.sqrt(((Math.pow(((double)x2 - x1), 2.0) + Math.pow(((double)y2 - y1), 2.0)))));
         }
 
 
@@ -29,8 +29,8 @@ public LinearEquation(int x1, int y1, int x2, int y2)
         /* Calculates and returns the y-intercept of the line between (x1, y1) and
            (x2, y2), rounded to the nearest hundredth */
         public double yIntercept() {
-            double m = ((y2 - y1)/(x2 - x1));
-            return Math.round((y1 - (m * x1)));
+            double m = ((double)(y2 - y1)/(double)(x2 - x1));
+            return Math.round(((double)y1 - (m * (double)x1)) * 100.0) / 100.0;
         }
 
 
@@ -38,7 +38,7 @@ public LinearEquation(int x1, int y1, int x2, int y2)
         /* Calculates and returns the slope of the line between (x1, y1) and
            (x2, y2), rounded to the nearest hundredth */
         public double slope() {
-            return Math.round(((y2 - y1)/(x2 - x1)));
+            return Math.round(((double)(y2 - y1)/(double)(x2 - x1)) * 100.0) / 100.0;
         }
 
 
@@ -70,11 +70,12 @@ public LinearEquation(int x1, int y1, int x2, int y2)
         public String equation() {
             int yFinal = (y2 - y1);
             int xFinal = (x2 - x1);
-            double b = Math.round(((y2 - y1)/(x2 - x1)));
+            System.out.println(yFinal);
+            double b = yIntercept();
             if (b < 0) {
-                return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x - " + Math.round(((y2 - y1) / (x2 - x1))));
+                return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x - " + b );
             } else {
-                return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x + " + Math.round(((y2 - y1) / (x2 - x1))));
+                return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x + " + b );
             }
         }
 
@@ -101,6 +102,7 @@ public LinearEquation(int x1, int y1, int x2, int y2)
             HINT:  the Math.round method can help with this!
          */
         public double roundedToHundredth(double toRound){
+           return Math.round(toRound);
         }
 
 
@@ -119,5 +121,6 @@ public LinearEquation(int x1, int y1, int x2, int y2)
 
           */
         public String lineInfo() {
+            return (coordinateForX(x1) + " " + coordinateForX(x2) + "\n" + equation() + "\n" + slope() + "\n" + yIntercept() + "\n" + distance());
         }
 }
