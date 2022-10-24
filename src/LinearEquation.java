@@ -18,6 +18,7 @@ public class LinearEquation {
 public LinearEquation(int x1, int y1, int x2, int y2)
         public LinearEquation(
 
+ */
 /* Calculates and returns distance between (x1, y1) and (x2, y2), rounded to
    the nearest hundredth */
         public double distance() {
