@@ -1,9 +1,6 @@
+import java.util.Scanner;
 public class LinearEquationRunner {
     public static void main(String[] args) {
-        int x1 = -1;
-        int y1 = 5;
-        int x2 = 3;
-        int y2 = 10;
 
         LinearEquation equation = new LinearEquation(x1, y1, x2, y2);
         System.out.println("Equation: " + equation.equation());
@@ -15,6 +12,7 @@ public class LinearEquationRunner {
         System.out.println("----- Line info -----");
         System.out.println(equation.lineInfo());
         System.out.println();
+
         double testX = 4;
         System.out.println("Coordinate for x: " + equation.coordinateForX(testX));
 
