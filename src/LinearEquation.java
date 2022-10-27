@@ -65,10 +65,19 @@ public LinearEquation(int x1, int y1, int x2, int y2)
         int xFinal = (x2 - x1);
         System.out.println(yFinal);
         double b = yIntercept();
-        if (b < 0) {
-            return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x - " + b );
+        if (yFinal % Math.abs(xFinal) != 0) {
+            if (b < 0) {
+                return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x - " + b );
+            } else {
+                return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x + " + b );
+            }
         } else {
-            return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x + " + b );
+            int m = (yFinal / xFinal);
+            if (b < 0) {
+                return ("y = " + m + "x " + b );
+            } else {
+                return ("y = " + m + "x + " + b );
+            }
         }
     }
 

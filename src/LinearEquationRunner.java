@@ -27,10 +27,6 @@ public class LinearEquationRunner {
 
        LinearEquation equation = new LinearEquation(x1, y1, x2, y2);
 
-       System.out.println(x1);
-       System.out.println(y1);
-       System.out.println(x2);
-       System.out.println(y2);
        System.out.println("Equation: " + equation.equation());
 
        System.out.println("Slope: " + equation.slope());
