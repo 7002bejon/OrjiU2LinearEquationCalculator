@@ -64,27 +64,68 @@ public LinearEquation(int x1, int y1, int x2, int y2)
         int yFinal = (y2 - y1);
         int xFinal = (x2 - x1);
         double b = yIntercept();
-        double m = (yFinal / xFinal);
+        double m = ((double) yFinal / xFinal);
+        int compare = Double.compare(m, 0.0);
+        System.out.println(compare - m);
         if (yFinal % Math.abs(xFinal) != 0) {
-            if (m > 0) {
+            if (m == 1) {
+                System.out.println(compare - m);
+                System.out.println("a");
                 if (b < 0) {
-                    return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x - " + b);
-                } else if (b > 0) {
-                    return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x + " + b);
-                } else {
-                    return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x");
-                }
-            } else if (m < 0) {
-                if (b < 0) {
-                    return ("y = -" + yFinal + "/" + Math.abs(xFinal) + "x - " + b);
+                    return ("y = x - " + b);
                 } else if (b > 0){
-                    return ("y = -" + yFinal + "/" + Math.abs(xFinal) + "x + " + b);
+                    return ("y = x + " + b);
                 } else {
-                    return ("y = -" + yFinal + "/" + Math.abs(xFinal) + "x");
+                    return ("y = x");
+                }
+            } else if (m > 0) {
+                System.out.println("b");
+                if (b < 0) {
+                    return ("y = " + Math.abs(yFinal) + "/" + Math.abs(xFinal) + "x - " + b);
+                } else if (b > 0) {
+                    return ("y = " + Math.abs(yFinal) + "/" + Math.abs(xFinal) + "x + " + b);
+                } else {
+                    return ("y = " + Math.abs(yFinal) + "/" + Math.abs(xFinal) + "x");
+                }
+            } else if (m == 0) {
+                if (b < 0) {
+                    return ("y = " + b);
+                } else if (b > 0){
+                    return ("y = " + b);
+                } else {
+                    return ("y = 0");
+                }
+            } else if (m == -1) {
+                System.out.println("c");
+                if (b < 0) {
+                    return ("y = -x - " + b);
+                } else if (b > 0){
+                    return ("y = -x + " + b);
+                } else {
+                    return ("y = -x");
+                }
+            }else if (m < 0) {
+                System.out.println("d");
+                if (b < 0) {
+                    return ("y = -" + Math.abs(yFinal) + "/" + Math.abs(xFinal) + "x - " + b);
+                } else if (b > 0){
+                    return ("y = -" + Math.abs(yFinal) + "/" + Math.abs(xFinal) + "x + " + b);
+                } else {
+                    return ("y = -" + Math.abs(yFinal) + "/" + Math.abs(xFinal) + "x");
                 }
             }
         } else {
-            if (m > 0) {
+            if (m == 1) {
+                System.out.println("one-m");
+                if (b < 0) {
+                    return ("y = x " + b);
+                } else if (b > 0) {
+                    return ("y = x + " + b);
+                } else {
+                    return ("y = x");
+                }
+            } else if (m > 0) {
+                System.out.println("e");
                 if (b < 0) {
                     return ("y = " + m + "x " + b);
                 } else if (b > 0) {
@@ -92,18 +133,36 @@ public LinearEquation(int x1, int y1, int x2, int y2)
                 } else {
                     return ("y = " + m + "x");
                 }
-            } else if (m < 0) {
+            } else if (m == 0) {
                 if (b < 0) {
-                    return ("y = -" + m + "x " + b);
-                } else if (b > 0) {
-                    return ("y = -" + m + "x + " + b);
+                    return ("y = " + b);
+                } else if (b > 0){
+                    return ("y = " + b);
                 } else {
-                    return ("y = -" + m + "x");
+                    return ("y = 0");
+                }
+            } else if (m == -1) {
+                    if (b < 0) {
+                        return ("y = -x " + b);
+                    } else if (b > 0) {
+                        return ("y = -x + " + b);
+                    } else {
+                        return ("y = -x");
+                    }
+            } else {
+                System.out.println("f");
+                if (b < 0) {
+                    return ("y = -" + Math.abs(m) + "x " + b);
+                } else if (b > 0) {
+                    return ("y = -" + Math.abs(m) + "x + " + b);
+                } else {
+                    return ("y = -" + Math.abs(m) + "x");
                 }
             }
         }
-        System.out.println("d");
-        return ("y = -" + yFinal + "/" + Math.abs(xFinal) + "x - " + b);
+        System.out.println("z");
+        return ("y = " + yFinal + "/" + Math.abs(xFinal) + "x + " + b);
+
     }
 
 
